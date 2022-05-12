@@ -10,7 +10,7 @@ import HeaderPoke from './HeaderPoke.vue';
 export default {
   name: 'ApplicationApp',
   components: {
-    HeaderPoke
+    HeaderPoke,
   }
 }
 </script>

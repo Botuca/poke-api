@@ -21,7 +21,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   display: flex;
   color: #2c3e50;
-  width: 50vw;
+  width: 960px;
   height: 100vh;
   background-color: #ECECEC;
 }

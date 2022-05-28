@@ -51,7 +51,6 @@ export default {
 
 .card-table {
   height: 50px;
-  border: 2px solid #000000;
   grid-column: span 5;
 }
 </style>

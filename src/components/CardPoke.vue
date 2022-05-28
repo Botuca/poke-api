@@ -1,35 +1,27 @@
 <template>
-  <div class="card">
-    <article class="card-item">
-      <span class="card-item__number">nº 035</span>
-      <img class="card-item__pokemon-image" src="../assets/clefairy.png" alt="Clefairy">
-      <span class="card-item__name">Clefairy</span>
-      <div class="card-item__type">
-        <div class="card-item__type-name">
-          <span>Fairy</span>
-        </div>
-        <div class="card-item__type-name">Fairy</div>
-        <div class="card-item__type-name">Fairy</div>
-        <div class="card-item__type-name">Fairy</div>
+  <article class="card-item">
+    <span class="card-item__number">nº 035</span>
+    <img class="card-item__pokemon-image" src="../assets/clefairy.png" alt="Clefairy">
+    <span class="card-item__name">Clefairy</span>
+    <div class="card-item__type">
+      <div class="card-item__type-name">
+        <span>Fairy</span>
       </div>
-    </article>
-  </div>
+      <div class="card-item__type-name">Fairy</div>
+      <div class="card-item__type-name">Fairy</div>
+      <div class="card-item__type-name">Fairy</div>
+    </div>
+  </article>
 </template>
 
 <script>
+
 export default {
   name: 'CardPoke',
 }
 </script>
 
 <style lang="scss" scoped>
-.card {
-  display: grid;
-  gap: 8px;
-  grid-template-columns: repeat(5, 1fr);
-  color: #595959;
-}
-
 .card-item {
   max-height: 220px;
   padding: 8px;
@@ -78,6 +70,5 @@ export default {
     justify-content: center;
     align-items: center;
   }
-
 }
 </style>

@@ -3,7 +3,7 @@
     <span class="card-item__number">nº 035</span>
     <img class="card-item__pokemon-image" src="../assets/clefairy.png" alt="Clefairy">
     <span class="card-item__name">Clefairy</span>
-    <div class="card-item__type">
+    <div class="card-item__info">
       <div class="card-item__type-name">
         <span>Fairy</span>
       </div>
@@ -30,6 +30,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.25);
 
   &__number {
     font-size: 12px;
@@ -48,7 +49,7 @@ export default {
     font-size: 22px;
   }
 
-  &__type {
+  &__info {
     width: 160px;
     display: grid;
     margin-top: 6px;
@@ -69,6 +70,7 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.25);
   }
 }
 </style>

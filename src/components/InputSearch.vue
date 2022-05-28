@@ -13,7 +13,7 @@ export default {
   font-size: 18px;
   height: 34px;
   border-radius: 10px;
-  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.25);
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.25);
   border: none;
 }
 </style>

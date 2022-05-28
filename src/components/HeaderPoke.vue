@@ -46,7 +46,7 @@ export default {
   margin-bottom: 6px;
   background: #333333;
   border: 1px solid #000000;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.25);
   border-radius: 5px;
   color: #FFFFFF;
 }

@@ -14,7 +14,6 @@ import InputSearch from '../components/InputSearch.vue';
 import HeaderPoke from '../components/HeaderPoke.vue';
 import { getPokemons } from '../services/index.js';
 
-
 export default {
   name: 'ApplicationApp',
   components: {

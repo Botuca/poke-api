@@ -19,7 +19,7 @@ import HeaderPoke from '../components/HeaderPoke.vue';
 import { getPokemonsTable } from '../services/index.js';
 
 export default {
-  name: 'ApplicationApp',
+  name: 'HomePage',
   components: {
     CardPoke,
     InputSearch,

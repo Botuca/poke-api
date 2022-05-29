@@ -1,14 +1,14 @@
 <template>
-  <Application id="app"/>
+  <HomePage id="app"/>
 </template>
 
 <script>
-import Application from './views/Application.vue';
+import HomePage from './views/HomePage.vue';
 
 export default {
   name: 'App',
   components: {
-    Application,
+    HomePage,
   }
 }
 </script>

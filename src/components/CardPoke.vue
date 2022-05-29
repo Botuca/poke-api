@@ -1,8 +1,8 @@
 <template>
   <article class="card-item">
-    <span class="card-item__number">nº 035</span>
-    <img class="card-item__pokemon-image" src="../assets/clefairy.png" alt="Clefairy">
-    <span class="card-item__name">Clefairy</span>
+    <span class="card-item__number"> nº 035 </span>
+    <img class="card-item__pokemon-image" :src="pokemonImage" :alt="pokemon.name">
+    <span class="card-item__name"> {{ pokemon.name }} </span>
     <div class="card-item__info">
       <div class="card-item__type-name">
         <span>Fairy</span>
@@ -18,11 +18,23 @@
 
 export default {
   name: 'CardPoke',
+  props: {
+    pokemon: { 
+      type: Object, 
+      required: true,
+    },
+  },
+  computed: {
+    pokemonImage() {
+      return this.pokemon.sprites.other['official-artwork'].front_default;
+    }
+  }
 }
 </script>
 
 <style lang="scss" scoped>
 .card-item {
+  height: 220px;
   max-height: 220px;
   padding: 8px;
   background: rgba(214, 133, 173, 0.3);
@@ -38,13 +50,11 @@ export default {
   }
 
   &__pokemon-image {
-    height: 126px;
-    width: 128px;
-    margin-top: -20px;
+    height: 100px;
+    width: 100px;
   }
 
   &__name {
-    margin-top: -20px;
     font-weight: 700;
     font-size: 22px;
   }

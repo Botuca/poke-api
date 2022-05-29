@@ -3,7 +3,11 @@
     <HeaderPoke />
     <section class="page__body">
       <InputSearch class="page__body__input-search"/>
-      <CardPoke v-for="(pokemon, index) in pokemons" :key="index" />
+      <CardPoke 
+        v-for="(pokemon, index) in pokemons"
+        :key="index"
+        v-bind="{ pokemon }"
+      />
     </section>
   </section>
 </template>
@@ -12,7 +16,7 @@
 import CardPoke from '../components/CardPoke.vue';
 import InputSearch from '../components/InputSearch.vue';
 import HeaderPoke from '../components/HeaderPoke.vue';
-import { getPokemons } from '../services/index.js';
+import { getPokemonsTable } from '../services/index.js';
 
 export default {
   name: 'ApplicationApp',
@@ -27,7 +31,7 @@ export default {
     };
   },
   async created() {
-    this.pokemons = await getPokemons("pokemon?limit=15&offset=0");
+    this.pokemons = await getPokemonsTable("pokemon?limit=15&offset=0");
   }
 }
 </script>

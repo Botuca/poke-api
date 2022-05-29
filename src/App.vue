@@ -13,7 +13,9 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
+@import './styles/index.scss';
+
 #app {
   margin: auto;
   font-family: 'Roboto', sans-serif;

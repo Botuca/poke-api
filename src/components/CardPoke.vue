@@ -1,20 +1,23 @@
 <template>
-  <article class="card-item">
+  <article class="card-item" :class="pokemonTypePrimaryColor">
     <span class="card-item__number"> nº 035 </span>
     <img class="card-item__pokemon-image" :src="pokemonImage" :alt="pokemon.name">
     <span class="card-item__name"> {{ pokemon.name }} </span>
     <div class="card-item__info">
-      <div class="card-item__type-name">
-        <span>Fairy</span>
+      <div
+        v-for="(type, index) in pokemon.types"
+        class="card-item__type-name"
+        :class="pokemonsColors[type.type.name].typeName"
+        :key="index"
+      >
+        <span>{{ type.type.name }}</span>
       </div>
-      <div class="card-item__type-name">Fairy</div>
-      <div class="card-item__type-name">Fairy</div>
-      <div class="card-item__type-name">Fairy</div>
     </div>
   </article>
 </template>
 
 <script>
+import { pokemonsColors } from '@/utils/pokemon-colors.js';
 
 export default {
   name: 'CardPoke',
@@ -27,17 +30,24 @@ export default {
   computed: {
     pokemonImage() {
       return this.pokemon.sprites.other['official-artwork'].front_default;
-    }
-  }
+    },
+    pokemonTypePrimaryColor() {
+      return pokemonsColors[this.pokemon.types[0].type.name].card;
+    },
+  },
+  data() {
+    return {
+      pokemonsColors,
+    };
+  },
 }
 </script>
 
 <style lang="scss" scoped>
 .card-item {
-  height: 220px;
-  max-height: 220px;
+  height: 170px;
+  max-height: 170px;
   padding: 8px;
-  background: rgba(214, 133, 173, 0.3);
   border-radius: 5px;
   display: flex;
   flex-direction: column;
@@ -61,13 +71,10 @@ export default {
 
   &__info {
     width: 160px;
-    display: grid;
+    display: flex;
+    gap: 20px;
     margin-top: 6px;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
     justify-items: center;
-    row-gap: 10px;
-    column-gap: 10px;
   }
 
   &__type-name {
@@ -75,7 +82,6 @@ export default {
     color: #FFFFFF;
     width: 70px;
     height: 20px;
-    background: #D685AD;
     border-radius: 5px;
     display: flex;
     justify-content: center;

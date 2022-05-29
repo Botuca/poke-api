@@ -1,8 +1,8 @@
 <template>
   <article class="card-item" :class="pokemonTypePrimaryColor">
-    <span class="card-item__number"> nº 035 </span>
-    <img class="card-item__pokemon-image" :src="pokemonImage" :alt="pokemon.name">
-    <span class="card-item__name"> {{ pokemon.name }} </span>
+    <span class="card-item__number"> nº {{ pokemonId }} </span>
+    <img class="card-item__pokemon-image" :src="pokemonImageURL" :alt="pokemon.name">
+    <span v-tooltip="pokemon.name" class="card-item__name"> {{ pokemon.name }} </span>
     <div class="card-item__info">
       <div
         v-for="(type, index) in pokemon.types"
@@ -28,12 +28,18 @@ export default {
     },
   },
   computed: {
-    pokemonImage() {
+    pokemonImageURL() {
       return this.pokemon.sprites.other['official-artwork'].front_default;
     },
-    pokemonTypePrimaryColor() {
-      return pokemonsColors[this.pokemon.types[0].type.name].card;
+    fisrtTypeName() {
+      return [this.pokemon.types[0].type.name];
     },
+    pokemonTypePrimaryColor() {
+      return pokemonsColors[this.fisrtTypeName].card;
+    },
+    pokemonId() {
+      return `${this.pokemon.id}`.padStart(3, '0');
+    }
   },
   data() {
     return {
@@ -57,6 +63,7 @@ export default {
   &__number {
     font-size: 12px;
     font-weight: 700;
+    align-self: flex-start;
   }
 
   &__pokemon-image {
@@ -67,6 +74,10 @@ export default {
   &__name {
     font-weight: 700;
     font-size: 22px;
+    width: 160px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   &__info {

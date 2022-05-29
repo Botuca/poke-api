@@ -44,7 +44,8 @@ export default {
   .page__body {
     margin: 28px 10px;
     display: grid;
-    gap: 8px;
+    column-gap: 8px;
+    row-gap: 16px;
 
     &__input-search {
       width: 365px;

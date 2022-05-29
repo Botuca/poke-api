@@ -13,10 +13,10 @@
 </template>
 
 <script>
-import CardPoke from '../components/CardPoke.vue';
-import InputSearch from '../components/InputSearch.vue';
-import HeaderPoke from '../components/HeaderPoke.vue';
-import { getPokemonsTable } from '../services/index.js';
+import CardPoke from '@/components/CardPoke.vue';
+import InputSearch from '@/components/InputSearch.vue';
+import HeaderPoke from '@/components/HeaderPoke.vue';
+import { getPokemonsTable } from '@/services/index.js';
 
 export default {
   name: 'HomePage',

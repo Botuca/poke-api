@@ -3,7 +3,9 @@
     <button class="header-menu--button">Pokemons</button>
     <button class="header-menu--button">Berries</button>
     <button class="header-menu--button">Items</button>
-    <div class="header-circle"/>
+    <div class="header-circle">
+      <div class="header-circle__inside" />
+    </div>
     <button class="header-menu--button">Locations</button>
     <button class="header-menu--button">Moves</button>
     <button class="header-menu--button">Contact</button>
@@ -20,7 +22,7 @@ export default {
 .header {
   height: 100px;
   width: 960px;
-  background-color: rgba(241,0,0,0.7);
+  background-color: rgb(255,54,24, 0.9);
   border-bottom: 10px solid #333333;
   display: flex;
   justify-content: space-around;
@@ -34,8 +36,17 @@ export default {
   border: 10px solid #333333;
   border-radius: 50%;
   display: flex;
+  justify-content: center;
+  align-items: center;
   position: relative;
   top: 90px;
+
+  &__inside {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.4);
+  }
 }
 
 .header-menu--button {

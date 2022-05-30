@@ -4,7 +4,7 @@ export const pokemonsColors = {
     typeName: "bg-color-fire",
   },
   normal: {
-    card: "bg-color-normal",
+    card: "bg-color-normal-30",
     typeName: "bg-color-normal",
   },
   water: {
@@ -65,7 +65,7 @@ export const pokemonsColors = {
   },
   steel: {
     card: "bg-color-steel-30",
-    typeName: "bg-color-fire",
+    typeName: "bg-color-steel",
   },
   fairy: {
     card: "bg-color-fairy-30",

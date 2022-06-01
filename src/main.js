@@ -1,9 +1,9 @@
 import Vue from "vue";
 import App from "./App.vue";
-import VTooltip from "v-tooltip";
+import vTitle from "vuejs-title";
 
 Vue.config.productionTip = false;
-Vue.use(VTooltip);
+Vue.use(vTitle);
 
 new Vue({
   render: (h) => h(App),

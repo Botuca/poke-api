@@ -2,7 +2,7 @@
   <article class="card-item" :class="pokemonTypePrimaryColor">
     <span class="card-item__number"> nº {{ pokemonId }} </span>
     <img class="card-item__pokemon-image" :src="pokemonImageURL" :alt="pokemon.name">
-    <span v-tooltip="pokemon.name" class="card-item__name"> {{ pokemon.name }} </span>
+    <span v-title="pokemon.name" class="card-item__name"> {{ pokemon.name }} </span>
     <div class="card-item__info">
       <div
         v-for="(type, index) in pokemon.types"

@@ -8,8 +8,8 @@
 
 <script>
 import Pokemons from './pokemons/index.vue';
-import HeaderPoke from '@/components/headerPoke.vue';
-import FooterPoke from '@/components/footerPoke.vue';
+import HeaderPoke from '@/components/HeaderPoke.vue';
+import FooterPoke from '@/components/FooterPoke.vue';
 
 export default {
   name: 'ApplicationApp',

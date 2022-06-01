@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import CardPoke from '@/components/cardPoke.vue';
+import CardPoke from '@/components/CardPoke.vue';
 import { getPokemonsTable } from '@/services/index.js';
 
 export default {

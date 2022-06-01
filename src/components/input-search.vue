@@ -1,10 +1,28 @@
 <template>
-  <input type="text" class="input-search" placeholder="Pesquisar..." />
+  <input
+    v-model="pokemonIdentifier"
+    autofocus
+    type="search"
+    maxlength="30"
+    class="input-search"
+    placeholder="Pesquisar..." 
+    @keyup.enter="onEnter"
+  />
 </template>
 
 <script>
 export default {
   name: "InputSearch",
+  data() {
+    return {
+      pokemonIdentifier: '',
+    };
+  },
+  methods: {
+    onEnter() {
+      this.$emit('search', this.pokemonIdentifier);
+    }
+  }
 }
 </script>
 

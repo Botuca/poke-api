@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import InputSearch from '@/components/InputSearch.vue';
+import { InputSearch } from '@/components';
 import PokemonsTable from './TablePoke.vue';
 
 export default {

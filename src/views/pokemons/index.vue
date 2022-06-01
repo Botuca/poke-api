@@ -9,7 +9,7 @@
 
 <script>
 import { InputSearch } from '@/components';
-import TablePoke from './tablePoke.vue';
+import TablePoke from './table-poke.vue';
 
 export default {
   name: 'HomePage',

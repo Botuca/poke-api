@@ -3,19 +3,19 @@
     <div class="pokemons__header">
       <input-search class="pokemons__header__input-search"/>
     </div>
-    <pokemons-table />
+    <table-poke />
   </section>
 </template>
 
 <script>
 import { InputSearch } from '@/components';
-import PokemonsTable from './TablePoke.vue';
+import TablePoke from './TablePoke.vue';
 
 export default {
   name: 'HomePage',
   components: {
     InputSearch,
-    PokemonsTable,
+    TablePoke,
   },
 }
 </script>

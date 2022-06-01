@@ -23,8 +23,8 @@ export default {
   name: 'CardPoke',
   props: {
     pokemon: { 
-      type: Object, 
-      required: true,
+      type: Object,
+      default: () => {},
     },
   },
   computed: {

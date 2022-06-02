@@ -13,7 +13,7 @@ import TablePoke from './table-poke.vue';
 import { getPokemonSearch, getPokemonsTable } from '@/services/index.js';
 
 export default {
-  name: 'HomePage',
+  name: 'PokemonsTable',
   components: {
     InputSearch,
     TablePoke,
@@ -21,7 +21,6 @@ export default {
   data() {
     return {
       pokemons: [],
-      getPokemon: [],
     };
   },
   created() {

@@ -1,19 +1,17 @@
 <template>
   <section class="page">
     <HeaderPoke />
-    <Pokemons />
+    <router-view />
     <FooterPoke />
   </section>
 </template>
 
 <script>
-import Pokemons from './pokemons/index.vue';
 import { HeaderPoke, FooterPoke } from '@/components';
 
 export default {
   name: 'ApplicationApp',
   components: {
-    Pokemons,
     HeaderPoke,
     FooterPoke,
   }

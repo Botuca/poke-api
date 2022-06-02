@@ -8,7 +8,7 @@
       />
     </section>
     <div v-else class="not-found-message">
-      <span>Deu ruim, por favor pesquise outro pokemon ai com o nome ou id certo meu chapa!!!</span>
+      <span>Deu ruim, por favor pesquise outro pokemon ai com o nome ou id certo, meu chapa!!!</span>
     </div>
   </section>
 </template>

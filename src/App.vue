@@ -1,15 +1,12 @@
 <template>
-  <Application id="app"/>
+  <section id=app>
+    <router-view />
+  </section>
 </template>
 
 <script>
-import Application from './views/Appication.vue';
-
 export default {
   name: 'App',
-  components: {
-    Application,
-  }
 }
 </script>
 

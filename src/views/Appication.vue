@@ -1,7 +1,7 @@
 <template>
   <section class="page">
     <HeaderPoke />
-    <router-view />
+    <router-view class="content"/>
     <FooterPoke />
   </section>
 </template>
@@ -22,5 +22,9 @@ export default {
 .page {
   display: flex;
   flex-direction: column;
+
+  .content {
+    padding: 8px;
+  }
 }
 </style>

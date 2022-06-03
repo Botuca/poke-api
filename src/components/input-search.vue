@@ -1,6 +1,6 @@
 <template>
   <input
-    v-model="pokemonIdentifier"
+    v-model="pokemonId"
     autofocus
     type="search"
     maxlength="30"
@@ -15,12 +15,12 @@ export default {
   name: "InputSearch",
   data() {
     return {
-      pokemonIdentifier: '',
+      pokemonId: '',
     };
   },
   methods: {
     onEnter() {
-      this.$emit('search', this.pokemonIdentifier);
+      this.$emit('search', this.pokemonId);
     }
   }
 }
@@ -33,5 +33,7 @@ export default {
   border-radius: 10px;
   box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.25);
   border: none;
+  width: 365px;
+  padding: 0px 8px;
 }
 </style>

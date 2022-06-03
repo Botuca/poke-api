@@ -1,16 +1,13 @@
 <template>
-  <section class="pokemons">
-    <div class="pokemons__header">
-      <input-search class="pokemons__header__input-search" @search="onSearch" />
-    </div>
-    <table-poke :pokemons="[...pokemons]"/>
+  <section>
+    <input-search @search="onSearch" />
+    <table-poke />
   </section>
 </template>
 
 <script>
+import TablePoke from './table/table-poke.vue';
 import { InputSearch } from '@/components';
-import TablePoke from './table-poke.vue';
-import { getPokemonSearch, getPokemonsTable } from '@/services/index.js';
 
 export default {
   name: 'PokemonsTable',
@@ -18,50 +15,17 @@ export default {
     InputSearch,
     TablePoke,
   },
-  data() {
-    return {
-      pokemons: [],
-    };
-  },
-  created() {
-    this.loadPokemonsTable();
-  },
   methods: {
-    async onSearch(pokemonIdentifier) {
-      if (!pokemonIdentifier) {
-        await this.loadPokemonsTable();
-        return;
-      }
+    async onSearch(pokemonId) {
+      if (!pokemonId) return;
 
-      await this.loadPokemon(pokemonIdentifier);
+      this.$router.push({
+        name: 'pokemon',
+        params: {
+          id: pokemonId,
+        },
+      });
     },
-    async loadPokemonsTable() {
-      this.pokemons = await getPokemonsTable("https://pokeapi.co/api/v2/pokemon?limit=15&offset=0");
-    },
-    async loadPokemon(pokemonIdentifier) {
-      this.pokemons = await getPokemonSearch(`https://pokeapi.co/api/v2/pokemon/${pokemonIdentifier}`) || [];
-    }
   }
 }
 </script>
-
-<style lang="scss" scoped>
-.pokemons {
-  display: flex;
-  flex-direction: column;
-  padding: 8px;
-
-  &__header {
-    height: 80px;
-    width: 100%;
-    display: flex;
-    align-items: center;
-
-    &__input-search {
-      width: 365px;
-      margin-bottom: 20px;
-      padding: 0px 8px;
-    }
-  }
-}
-</style>

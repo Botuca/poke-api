@@ -25,8 +25,8 @@ export const getPokemonsTable = async (filter) => {
   return await getPokemonTable(pokemonsURLs);
 };
 
-export const getPokemonSearch = async (pokemonIdentifier) =>
-  fetch(pokemonIdentifier)
+export const getPokemonSearch = async (pokemonId) =>
+  fetch(pokemonId)
     .then((response) => {
       return response?.json();
     })

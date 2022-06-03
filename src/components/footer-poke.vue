@@ -1,6 +1,10 @@
 <template>
   <footer class="footer">
+    <div class="footer__created-by" />
     <div class="footer__semi-circle"/>
+    <div class="footer__created-by">
+      <span>Criado por: Luiz Gustavo Eburneo</span>
+    </div>
   </footer>
 </template>
 
@@ -13,8 +17,7 @@ export default {
 <style lang="scss" scoped>
 .footer {
   height: 100px;
-  padding: 0px 10px 10px 10px;
-  width: 940px;
+  width: 960px;
   box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.25);
   display: flex;
   justify-content: center;
@@ -28,6 +31,14 @@ export default {
     border-bottom-right-radius: 100px;
     background-color: #ECECEC;
     box-shadow: inset 0 -3px 3px rgba(0, 0, 0, 0.15);
+  }
+
+  &__created-by {
+    width: 390px;
+    align-self: flex-end;
+    text-align: end;
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.6);
   }
 }
 </style>

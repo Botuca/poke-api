@@ -12,7 +12,8 @@
     "sass": "^1.52.1",
     "vue": "^2.6.14",
     "vue-router": "3",
-    "vuejs-title": "^1.0.16"
+    "vuejs-title": "^1.0.16",
+    "yarn": "^1.22.18"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",

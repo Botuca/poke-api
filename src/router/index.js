@@ -16,7 +16,7 @@ const router = new VueRouter({
           props: true,
         },
         {
-          path: "/pokemon/:id",
+          path: "/pokemons/:id",
           component: () => import("@/views/pokemons/pokemon-details.vue"),
           name: "pokemon",
           props: true,

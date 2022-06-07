@@ -1,10 +1,10 @@
 <template>
   <div>
-    <div class="button">
+    <div v-if="!!offset" class="button" @click="onChangePage(-15)"> 
       <font-awesome-icon icon="fa-chevron-left" />
     </div>
-    <div class="button__page">0 ... 15</div>
-    <div class="button">
+    <div class="button__page">{{ offset + 1 }} ... {{ offset + 15 }}</div>
+    <div class="button" @click="onChangePage(+15)">
       <font-awesome-icon icon="fa-chevron-right" />
     </div>
   </div>
@@ -13,6 +13,21 @@
 <script>
 export default {
   name: "PaginationTable",
+  computed: {
+    offset() {
+      return Number(this.$route.query.offset) || 0;
+    },
+  },
+  methods: {
+    onChangePage(pages) {
+      if (this.isFirstPage(pages)) return;
+
+      this.$emit('on-change', pages);
+    },
+    isFirstPage(pages) {
+      return this.offset + pages < 0;
+    },
+  }
 }
 </script>
 

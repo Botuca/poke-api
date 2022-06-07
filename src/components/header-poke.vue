@@ -1,6 +1,6 @@
 <template>
   <header class="header">
-    <button class="header-menu--button" :class="{ 'selected': selectedMenuItem === 1}" @click="onClickMenuItem('pokemons')">
+    <button class="header-menu--button" :class="{ 'selected': selectedMenuItem === 1}" @click="onClickMenuItem('pokemons', 0)">
       Pokemons
     </button>
     <button class="header-menu--button" :class="{ 'selected': selectedMenuItem === 1}" @click="onClickMenuItem('moves')">
@@ -27,12 +27,11 @@ export default {
     this.selectedMenuItem = this.$route.name;
   },
   methods: {
-    onClickMenuItem(route) {
-      if (this.selectedMenuItem === route && !this.$route.params.id) return;
-
+    onClickMenuItem(route, offset) {
+      if (this.selectedMenuItem === route && !this.$route.params.id && !this.$route.query.offset) return;
       this.selectedMenuItem = route;
-      this.$router.replace({ name: this.selectedMenuItem })
 
+      this.$router.push({ name: this.selectedMenuItem, query: { offset } });
     },
   }
 }

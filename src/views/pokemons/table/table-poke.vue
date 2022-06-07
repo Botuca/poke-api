@@ -1,7 +1,7 @@
 <template>
   <section>
     <div v-if="hasPokemons" class="content">
-      <pagination-table class="content__pagination"/>
+      <pagination-table class="content__pagination" @on-change="onChangePage" />
       <section class="content__table">
         <CardPoke
           v-for="(pokemon, index) in pokemons"
@@ -11,7 +11,7 @@
       </section>
     </div>
     <div v-else class="not-found-message">
-      <span>Deu ruim, por favor pesquise outro pokemon ai com o nome ou id certo, meu chapa!!!</span>
+      <span>Carregando</span>
     </div>
   </section>
 </template>
@@ -36,9 +36,33 @@ export default {
     hasPokemons() {
       return !!this.pokemons?.length;
     },
+    offset() {
+      return Number(this.$route.query.offset) || 0;
+    },
+  },
+  watch: {
+    offset: {
+      handler() {
+        this.pokemons = [];
+        this.loadPokemonsTable();
+      }
+    }
   },
   async created() {
-    this.pokemons = await getPokemonsTable("https://pokeapi.co/api/v2/pokemon?limit=15&offset=0");
+    await this.loadPokemonsTable();
+  },
+  methods: {
+    async onChangePage(offset) {
+      this.$router.push({
+        name: 'pokemons',
+        query: {
+          offset: Number(this.$route.query.offset || 0) + offset,
+        },
+      });
+    },
+    async loadPokemonsTable() {
+      this.pokemons = await getPokemonsTable(`https://pokeapi.co/api/v2/pokemon?limit=15&offset=${this.offset}`);
+    },
   }
 }
 </script>

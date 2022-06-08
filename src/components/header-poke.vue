@@ -28,10 +28,8 @@ export default {
   },
   methods: {
     onClickMenuItem(route, offset) {
-      if (this.selectedMenuItem === route && !this.$route.params.id && !this.$route.query.offset) return;
       this.selectedMenuItem = route;
-
-      this.$router.push({ name: this.selectedMenuItem, query: { offset } });
+      this.$router.push({ name: this.selectedMenuItem, query: { offset } }).catch(() => {})
     },
   }
 }

@@ -30,11 +30,12 @@ export default {
   data() {
     return {
       pokemons: [],
+      isLoading: false,
     };
   },
   computed: {
     hasPokemons() {
-      return !!this.pokemons?.length;
+      return !!this.pokemons?.length && !this.isLoading;
     },
     offset() {
       return Number(this.$route.query.offset) || 0;
@@ -43,7 +44,6 @@ export default {
   watch: {
     offset: {
       handler() {
-        this.pokemons = [];
         this.loadPokemonsTable();
       }
     }
@@ -61,7 +61,14 @@ export default {
       });
     },
     async loadPokemonsTable() {
-      this.pokemons = await getPokemonsTable(`https://pokeapi.co/api/v2/pokemon?limit=15&offset=${this.offset}`);
+      this.isLoading = true;
+
+      this.pokemons = [];
+      this.pokemons = await getPokemonsTable(`https://pokeapi.co/api/v2/pokemon?limit=15&offset=${this.offset}`).then(data => {
+        this.isLoading = false;
+
+        return data;
+      });
     },
   }
 }

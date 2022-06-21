@@ -1,7 +1,9 @@
 <template>
   <article class="card-item" :class="pokemonTypePrimaryColor">
     <span class="card-item__number"> nº {{ pokemonId }} </span>
-    <img class="card-item__pokemon-image" :src="pokemonImageURL" :alt="pokemon.name">
+    <figure class="card-item__pokemon-figure">
+      <img class="card-item__pokemon-image" :src="pokemonImageURL" :alt="pokemon.name" @click="$emit('on-click', pokemon.name)">
+    </figure>
     <span v-title="pokemon.name" class="card-item__name"> {{ pokemon.name }} </span>
     <div class="card-item__info">
       <div
@@ -64,6 +66,11 @@ export default {
     font-size: 12px;
     font-weight: 700;
     align-self: flex-start;
+  }
+
+  &__pokemon-figure {
+    margin: 0;
+    cursor: pointer;
   }
 
   &__pokemon-image {

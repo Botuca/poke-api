@@ -5,8 +5,9 @@
       <section class="content__table">
         <CardPoke
           v-for="(pokemon, index) in pokemons"
-          :key="index"
           v-bind="{ pokemon }"
+          :key="index"
+          @on-click="onClickPokemon"
         />
       </section>
     </div>
@@ -70,6 +71,9 @@ export default {
         return data;
       });
     },
+    onClickPokemon(pokemonId) {
+      this.$router.push({name: 'pokemon', params: {id: pokemonId}});
+    }
   }
 }
 </script>

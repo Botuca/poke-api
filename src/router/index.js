@@ -17,7 +17,7 @@ const router = new VueRouter({
         },
         {
           path: "/pokemons/:id",
-          component: () => import("@/views/pokemons/pokemon-details.vue"),
+          component: () => import("@/views/pokemon/index.vue"),
           name: "pokemon",
           props: true,
         },

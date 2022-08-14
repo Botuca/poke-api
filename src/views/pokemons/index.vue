@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section class="content">
     <input-search @search="onSearch" />
     <table-poke />
   </section>
@@ -29,3 +29,9 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.content {
+  padding: 8px;
+}
+</style>

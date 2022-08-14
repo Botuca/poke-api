@@ -22,9 +22,5 @@ export default {
 .page {
   display: flex;
   flex-direction: column;
-
-  .content {
-    padding: 8px;
-  }
 }
 </style>

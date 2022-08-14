@@ -1,6 +1,6 @@
 <template>
   <article class="card-item" :class="pokemonTypePrimaryColor">
-    <span class="card-item__number"> nº {{ pokemonId }} </span>
+    <span class="card-item__number"> #{{ pokemonId }} </span>
     <figure class="card-item__pokemon-figure">
       <img class="card-item__pokemon-image" :src="pokemonImageURL" :alt="pokemon.name" @click="$emit('on-click', pokemon.name)">
     </figure>

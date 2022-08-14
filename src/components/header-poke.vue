@@ -38,6 +38,7 @@ export default {
 <style lang="scss" scoped>
 .header {
   height: 100px;
+  min-height: 100px;
   width: 940px;
   background-color: rgb(255,54,24, 0.9);
   border-bottom: 10px solid #333333;

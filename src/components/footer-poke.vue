@@ -3,6 +3,20 @@
     <div class="footer__created-by" />
     <div class="footer__semi-circle"/>
     <div class="footer__created-by">
+      <div>
+        <a href="https://www.instagram.com/gustavo_eburneo/" target="_blank">
+          <img class="img__content" src="../assets/instagram-icon.svg" alt="instagram-icon">
+        </a>
+        <a href="https://github.com/Botuca/" target="_blank">
+          <img class="img__content" src="../assets/github-icon.svg" alt="github-icon">
+        </a>
+        <a href="https://twitter.com/luiz_eburneo" target="_blank">
+          <img class="img__content" src="../assets/twitter-icon.svg" alt="twitter-icon">
+        </a>
+        <a href="https://www.linkedin.com/in/luizeburneo/" target="_blank">
+          <img class="img__content" src="../assets/linkedin-icon.svg" alt="linkedin-icon">
+        </a>
+      </div>
       <span>Criado por: Luiz Gustavo Eburneo</span>
     </div>
   </footer>
@@ -39,6 +53,15 @@ export default {
     text-align: end;
     font-size: 12px;
     color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    .img__content {
+      height: 32px;
+      width: 32px;
+      padding-left: 16px;
+    }
   }
 }
 </style>

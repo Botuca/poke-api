@@ -36,9 +36,9 @@ export default {
   },
   computed: {
     typePrimaryColor() {
-      return pokemonsColors[this.fisrtTypeName]?.card;
+      return pokemonsColors[this.fisrtname]?.card;
     },
-    fisrtTypeName() {
+    fisrtname() {
       return this.pokemon.types?.[0].type.name;
     },
     imageURL() {

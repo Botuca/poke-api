@@ -6,23 +6,22 @@
     </figure>
     <span v-title="pokemon.name" class="card-item__name"> {{ pokemon.name }} </span>
     <div class="card-item__info">
-      <div
-        v-for="(type, index) in pokemon.types"
-        class="card-item__type-name"
-        :class="pokemonsColors[type.type.name].typeName"
+      <type-poke v-for="({type}, index) in pokemon.types"
+        :class="pokemonsColors[type.name].name"
         :key="index"
-      >
-        <span>{{ type.type.name }}</span>
-      </div>
+        :type="type.name"
+      />
     </div>
   </article>
 </template>
 
 <script>
 import { pokemonsColors } from '@/utils/pokemon-colors.js';
+import typePoke from './type-poke.vue';
 
 export default {
   name: 'CardPoke',
+  components: { typePoke },
   props: {
     pokemon: { 
       type: Object,
@@ -33,11 +32,11 @@ export default {
     pokemonImageURL() {
       return this.pokemon.sprites.other['official-artwork'].front_default;
     },
-    fisrtTypeName() {
+    firstname() {
       return [this.pokemon.types[0].type.name];
     },
     pokemonTypePrimaryColor() {
-      return pokemonsColors[this.fisrtTypeName].card;
+      return pokemonsColors[this.firstname].card;
     },
     pokemonId() {
       return `${this.pokemon.id}`.padStart(3, '0');
@@ -98,18 +97,6 @@ export default {
     gap: 20px;
     margin-top: 6px;
     justify-items: center;
-  }
-
-  &__type-name {
-    font-size: 12px;
-    color: #FFFFFF;
-    width: 70px;
-    height: 20px;
-    border-radius: 5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.25);
   }
 }
 </style>

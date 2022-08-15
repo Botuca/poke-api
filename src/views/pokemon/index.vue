@@ -9,11 +9,15 @@
       <img class="content__intro__image" :src="imageURL" :alt="pokemon.name">
     </div>
     <div class="content__infos">
+      <span> <strong>Base experience:</strong> {{ baseExperience }} </span>
       <span> <strong>Abilities:</strong> {{ abilities }} </span>
       <span> <strong>Types:</strong> {{ types }} </span>
       <span> <strong>Moves qtd.:</strong> {{ movesLength }} </span>
       <span> <strong>Height:</strong> {{ height }} m</span>
       <span> <strong>Weight:</strong> {{ weight }} Kg</span>
+    </div>
+    <div class="content__infos">
+      <span v-for="(stat) in stats" :key="stat.name"> <strong>{{stat.name}}:</strong> {{ stat.base_stat }} </span>
     </div>
   </section>
 </template>
@@ -58,11 +62,17 @@ export default {
     movesLength() {
       return this.pokemon?.moves?.length;
     },
+    baseExperience() {
+      return this.pokemon?.base_experience;
+    },
+    stats() {
+      return this.pokemon?.stats?.map(({stat, base_stat}) => {
+        return { base_stat, name: stat.name.charAt(0).toUpperCase() + stat.name.slice(1) };
+      });
+    },
   },
   async mounted() {
     this.pokemon = await getPokemonSearch(`https://pokeapi.co/api/v2/pokemon/${this.$route.params.id}`) || [];
-
-    console.log(this.pokemon);
   },
 }
 </script>
@@ -75,6 +85,7 @@ export default {
   border-top: none;
   display: flex;
   align-items: center;
+  justify-content: space-between;
 
   &__intro {
   display: flex;
@@ -114,6 +125,7 @@ export default {
   &__infos {
     display: flex;
     flex-direction: column;
+    padding-right: 16px;
   }
 }
 </style>

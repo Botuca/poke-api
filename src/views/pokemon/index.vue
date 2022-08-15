@@ -1,6 +1,9 @@
 <template>
   <section class="content" :class="typePrimaryColor">
     <div class="content__intro">
+      <a class="content__intro__back" @click="$router.go(-1)">
+        <font-awesome-icon class="content__intro__back--padding" icon="fa-chevron-left" />
+      </a>
       <span class="content__intro__title">{{ pokemon.name }}</span>
       <span class="content__intro__subtitle"> #{{id}}</span>
       <img class="content__intro__image" :src="imageURL" :alt="pokemon.name">
@@ -76,6 +79,19 @@ export default {
   &__intro {
   display: flex;
   flex-direction: column;
+
+    &__back {
+      cursor: pointer;
+      margin-left: 16px;
+      background-color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 20px;
+      border-radius: 10px;
+      border: 2px solid black;
+      padding: 2px;
+    }
 
     &__title {
       font-size: 40px;

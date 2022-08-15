@@ -54,7 +54,6 @@ export default {
 <style lang="scss" scoped>
 .card-item {
   height: 170px;
-  max-height: 170px;
   padding: 8px;
   border-radius: 5px;
   display: flex;
@@ -69,6 +68,7 @@ export default {
   }
 
   &__pokemon-figure {
+    height: 100px;
     margin: 0;
     cursor: pointer;
   }
@@ -76,6 +76,11 @@ export default {
   &__pokemon-image {
     height: 100px;
     width: 100px;
+
+    &:hover {
+      transform: scale(2);
+      padding-top: 15px;
+    }
   }
 
   &__name {

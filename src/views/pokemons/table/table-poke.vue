@@ -11,8 +11,8 @@
         />
       </section>
     </div>
-    <div v-else class="not-found-message">
-      <span>Carregando</span>
+    <div v-else class="not-found">
+      <strong class="not-found__message">Carregando...</strong>
     </div>
   </section>
 </template>
@@ -96,10 +96,15 @@ export default {
   }
 }
 
-.not-found-message {
+.not-found {
   display: flex;
-  height: 300px;
+  height: 900px;
   justify-content: center;
-  align-items: center;
+  width: 960px;
+
+  &__message {
+    margin-top: 150px;
+    font-size: 24px;
+  }
 }
 </style>

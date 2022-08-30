@@ -98,7 +98,6 @@ export default {
 
 .not-found {
   display: flex;
-  height: 900px;
   justify-content: center;
   width: 960px;
 

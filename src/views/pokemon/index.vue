@@ -15,7 +15,16 @@
       <div class="stats">
         <span> <strong>Base experience:</strong> {{ baseExperience }} </span>
         <span> <strong>Abilities:</strong> {{ abilities }} </span>
-        <span> <strong>Types:</strong> {{ types }} </span>
+        <span class="stats__types">
+          <strong>Types:</strong>
+          <type-poke
+            v-for="({ type }, index) in pokemon.types"
+            class="type"
+            :class="pokemonsColors[type.name].name"
+            :key="index"
+            :type="type.name"
+          />
+        </span>
         <span> <strong>Moves qtd.:</strong> {{ movesLength }} </span>
         <span> <strong>Height:</strong> {{ height }} m</span>
         <span> <strong>Weight:</strong> {{ weight }} Kg</span>
@@ -32,9 +41,11 @@
 <script>
 import { getPokemonSearch } from "@/services/index.js";
 import { pokemonsColors } from "@/utils/pokemon-colors.js";
+import { TypePoke } from "@/components";
 
 export default {
   name: "PokemonDetails",
+  components: { TypePoke },
   data() {
     return {
       pokemonsColors,
@@ -139,7 +150,7 @@ export default {
     }
   }
 
-  &__infos { 
+  &__infos {
     display: flex;
     align-items: flex-end;
     margin-bottom: 16px;
@@ -149,6 +160,18 @@ export default {
       flex-direction: column;
       padding-right: 32px;
       color: rgba(0, 0, 0, 0.4);
+
+      span {
+        margin-bottom: 8px;
+      }
+
+      &__types {
+        display: flex;
+
+        .type {
+          margin: 0px 4px;
+        }
+      }
     }
   }
 }

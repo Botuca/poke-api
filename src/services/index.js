@@ -36,3 +36,15 @@ export const getPokemonSearch = async (pokemonId) =>
     .catch((error) => {
       console.error("deu ruim", error);
     });
+
+export const getPokemonLocation = async (locationAreaEncounters) =>
+  fetch(locationAreaEncounters)
+    .then((response) => {
+      response?.json();
+    })
+    .then((data) => {
+      return data;
+    })
+    .catch((error) => {
+      console.error("deu ruimm", error);
+    });
